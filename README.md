@@ -2,6 +2,10 @@
 
 Check what your file leaks — before you send it.
 
+**[Try it live →](https://karanmonu.github.io/safeshare/)** — one click on the sample file shows the whole idea:
+
+![A "redacted" PDF dropped on SafeShare; the black box hides an account number that one click recovers](assets/demo.gif)
+
 That black box over the account number? If you can still copy the text underneath,
 so can everyone you send it to — and any AI assistant will extract it in one
 sentence. Thousands of "redactions" in the DOJ's 2025 Epstein files release failed
