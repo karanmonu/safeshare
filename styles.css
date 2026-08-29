@@ -95,6 +95,30 @@ header.masthead { border-bottom: 3px double var(--ink); padding-bottom: 20px; }
   background: var(--paper);
 }
 
+.catches {
+  margin-top: 8px;
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+
+.sample-row {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  color: var(--faint);
+}
+
+.sample-row button {
+  font: inherit;
+  color: var(--red);
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid var(--red);
+  padding: 0 1px 1px;
+  cursor: pointer;
+}
+
+.sample-row button:hover { background: var(--red); color: var(--card); }
+
 /* status + file line */
 
 #status {

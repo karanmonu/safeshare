@@ -7,6 +7,13 @@
       content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; connect-src 'self'; worker-src 'self' blob:">
 <title>SafeShare — what does this file leak?</title>
 <meta name="description" content="Free, open-source, client-side check for fake PDF redactions, hidden metadata, and photo GPS data. Files never leave your device.">
+<meta property="og:title" content="SafeShare — what does this file leak?">
+<meta property="og:description" content="Fake redactions, hidden metadata, GPS in photos — checked entirely in your browser. Nothing is uploaded.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://karanmonu.github.io/safeshare/">
+<meta property="og:image" content="https://karanmonu.github.io/safeshare/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://karanmonu.github.io/safeshare/assets/social-card.png">
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -14,6 +21,7 @@
   <header class="masthead">
     <div class="wordmark">What does this <span class="bar">file leak?</span></div>
     <p class="dek">SafeShare reads your document the way an attacker would — then tells you, before you hit send.</p>
+    <p class="catches">Catches: fake redactions&ensp;·&ensp;hidden metadata&ensp;·&ensp;GPS in photos</p>
     <div class="wire">
       <span>runs in your browser</span>
       <span>nothing is uploaded</span>
@@ -27,6 +35,7 @@
     <div class="sub">or press <kbd>enter</kbd> to browse — pdf · jpeg · png · nothing leaves this tab</div>
     <input id="file" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" hidden>
   </div>
+  <p class="sample-row">No leaky file at hand? <button id="sample" type="button">Try a sample “redacted” PDF</button> — it looks censored; see what an attacker reads.</p>
 
   <p id="status"></p>
   <div id="fileline"><span id="filename"></span><span id="filemeta"></span></div>
