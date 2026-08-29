@@ -1,0 +1,4 @@
+node_modules/
+test/corpus/
+.DS_Store
+dist/

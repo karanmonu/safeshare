@@ -1,0 +1,23 @@
+{
+  "name": "safeshare",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/make-corpus.mjs && node test/run-tests.mjs",
+    "corpus": "node test/make-corpus.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.8",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.10.38"
+  },
+  "type": "module"
+}

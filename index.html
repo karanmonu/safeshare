@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' blob: data:; style-src 'self'; script-src 'self'; connect-src 'self'; worker-src 'self' blob:">
+<title>SafeShare — what does this file leak?</title>
+<meta name="description" content="Free, open-source, client-side check for fake PDF redactions, hidden metadata, and photo GPS data. Files never leave your device.">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main>
+  <header class="masthead">
+    <div class="wordmark">What does this <span class="bar">file leak?</span></div>
+    <p class="dek">SafeShare reads your document the way an attacker would — then tells you, before you hit send.</p>
+    <div class="wire">
+      <span>runs in your browser</span>
+      <span>nothing is uploaded</span>
+      <span>works with wifi off</span>
+      <span>open source, agpl</span>
+    </div>
+  </header>
+
+  <div id="drop" tabindex="0" role="button" aria-label="Choose a file to check">
+    <div class="lede">Drop a PDF or a photo here.</div>
+    <div class="sub">or press <kbd>enter</kbd> to browse — pdf · jpeg · png · nothing leaves this tab</div>
+    <input id="file" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" hidden>
+  </div>
+
+  <p id="status"></p>
+  <div id="fileline"><span id="filename"></span><span id="filemeta"></span></div>
+  <div id="verdict"></div>
+  <div id="results"></div>
+  <div id="actions"></div>
+  <p id="checked"></p>
+
+  <footer>
+    <p>SafeShare never calls a file “safe”. It reports that <em>no known leak patterns were
+    found</em>, and lists every check it ran — a checker that overpromises is worse than none.
+    The detection engine, its test corpus, and this page are one auditable codebase:
+    <a href="https://github.com/karanmonu/safeshare" rel="noopener">github.com/karanmonu/safeshare</a>.</p>
+  </footer>
+</main>
+<script type="module" src="./src/ui/app.js"></script>
+</body>
+</html>
