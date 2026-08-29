@@ -16,6 +16,15 @@ async function libs() {
   return { pdfjsLib, PDFLib };
 }
 
+// A deliberately leaky one-page PDF (same file as test/corpus/fake-redaction.pdf):
+// an account number drawn as text, then covered with a black rectangle.
+const SAMPLE_B64 = 'JVBERi0xLjcKJYGBgYEKCjYgMCBvYmoKPDwKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL0xlbmd0aCAyODEKPj4Kc3RyZWFtCnicfVHLSkMxEN3nK7IWxMlkHgmIi/amuHAj3J24kNr6oF1URH/fk6qXUqkMmcyZzCQnc3ZhNgaK3d6ewsX1avOxen9ZPpw71SKFvNSYOI7rwBLHm5D2pSkqRSeK4zZcajZ1cbG5qQ1YzYXJkrkz0EGuOpPjxBnVFV0ZdXOrnoHVelfvmNsCre0qjq9hPAttDLdhd4pnxcVWWK2c4mn6zVOSZNhCVZrirQ5yys5DrjDOiUlJqjScFZhkZkK9SxNVxMq4Y4Y4SwGCl4TcIOmI60SU4me4u0f8ODESjSY5LrdTpvu/sG/d4z+bkMtBQNifw/q/qTARFdJa7ORUftWzPn+owV0/KJD38++ZZpNeP2omoHKkzBdsvnppCmVuZHN0cmVhbQplbmRvYmoKCjcgMCBvYmoKPDwKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL1R5cGUgL09ialN0bQovTiA1Ci9GaXJzdCAyNgovTGVuZ3RoIDM4Mgo+PgpzdHJlYW0KeJzVUk1LAzEQvedXzFEPko/u5kNKobZdBSmWVlAUD+tuKCuSyG4q+u+d2a0WEfEsYUhm3ptkJvMkCFCQZTACYyGDfKQgB6MNjMeMX7+/eOCrcus7xi+buoN75AhYwwPjs7gLCSSbTNiBOytT+Ry3bEgCSeRPxqqN9a7yLYyLRVEIYYQQOkPTQqg57jM0h6bQR0xZPKOZbG8YMyMhRlPEisG0GXII77n5Pn+BO3I1ceYDN7OD//UuvbUY7lB/1eMmjC9jPS+Th6P5qRJKC6ucdDKT8u4Yv6P1ZYr/t7m+/iaGXzv8NmcaLw259aSBfsp87bu4ayscO/GKiAgdLvzzq09NVZ4Y4SzWaaxDjfUpB8yZTGmrcm1/YvRfVuTO6j2GpfDbq8cnX/VPkLt4S+ebRLUPAYotfd2UZ/ENVStwaanAOEXanYYQE6m513FI2AV5eq/tb61SI4xvdo+pdykoGT8rO9+3eKgTiwhVrJuwBX7ThGnoms8A3fgB8l7USgplbmRzdHJlYW0KZW5kb2JqCgo4IDAgb2JqCjw8Ci9TaXplIDkKL1Jvb3QgMiAwIFIKL0luZm8gMyAwIFIKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL1R5cGUgL1hSZWYKL0xlbmd0aCA0MQovVyBbIDEgMiAyIF0KL0luZGV4IFsgMCA5IF0KPj4Kc3RyZWFtCnicFcTBDQAwCAOxCyD12+kYpPtLlPhhYCY44OTCpStxQXpbNnxeQQMVCmVuZHN0cmVhbQplbmRvYmoKCnN0YXJ0eHJlZgo4NTQKJSVFT0Y=';
+
+document.getElementById('sample').addEventListener('click', () => {
+  const bytes = Uint8Array.from(atob(SAMPLE_B64), c => c.charCodeAt(0));
+  handle(new File([bytes], 'sample-leaky.pdf', { type: 'application/pdf' }));
+});
+
 drop.addEventListener('click', () => fileInput.click());
 drop.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); } });
 fileInput.addEventListener('change', () => fileInput.files[0] && handle(fileInput.files[0]));
